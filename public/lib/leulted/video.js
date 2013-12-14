@@ -1,10 +1,4 @@
 function render(id, video, caption) {
-	// views
-	$('#sidebar').affix({
-		offset: {
-			top: $('header').height()
-		}
-	});
 	$.each(caption, function(index, caption) {
 		$('table#captions tbody').append($('<tr>', {
 			'data-index': index,
@@ -59,7 +53,6 @@ function render(id, video, caption) {
 			seek.index = next.data('index')
 			current.removeClass('success')
 			next.addClass('success')
-
 			$('html,body').animate({
 				scrollTop: (next.offset().top - 140)
 			}, 'fast');
@@ -73,12 +66,12 @@ function get_video_id() {
 }
 
 $(function() {
-	$('body').modalmanager('loading')
+	// $('body').modalmanager('loading')
 	setTimeout(function() {
 		var id = get_video_id()
 		var video = get_video_by_id(id)
 		var caption = get_video_caption(id, 'en')
-		$('body').modalmanager('removeLoading')
+		// $('body').modalmanager('removeLoading')
 		render(id, video, caption)
 	}, 1000)
 })
