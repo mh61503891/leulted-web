@@ -24,12 +24,12 @@ function render(id, video, caption) {
 	}
 	$('#video-offset-value').text(seek.offset / 1000)
 	$('#video-offset-up').bind('click', function() {
-		seek.offset = seek.offset + 1000
+		seek.offset = seek.offset + 500
 		$('#video-offset-value').text(seek.offset / 1000)
 		set_local_video_offset(id, seek.offset)
 	})
 	$('#video-offset-down').bind('click', function() {
-		seek.offset = seek.offset - 1000
+		seek.offset = seek.offset - 500
 		$('#video-offset-value').text(seek.offset / 1000)
 		set_local_video_offset(id, seek.offset)
 	})
