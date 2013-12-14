@@ -81,12 +81,12 @@
 					that.backdrop(modal, function () {
 						modal.$element.show();
 
-						if (transition) {       
-							//modal.$element[0].style.display = 'run-in';       
+						if (transition) {
+							//modal.$element[0].style.display = 'run-in';
 							modal.$element[0].offsetWidth;
-							//modal.$element.one($.support.transition.end, function () { modal.$element[0].style.display = 'block' });  
+							//modal.$element.one($.support.transition.end, function () { modal.$element[0].style.display = 'block' });
 						}
-						
+
 						modal.layout();
 
 						modal.$element
@@ -115,7 +115,7 @@
 				if (modal.$backdrop){
 					var transition = $.support.transition && modal.$element.hasClass('fade');
 
-					// trigger a relayout due to firebox's buggy transition end event 
+					// trigger a relayout due to firebox's buggy transition end event
 					if (transition) { modal.$element[0].offsetWidth; }
 
 					$.support.transition && modal.$element.hasClass('fade') ?
@@ -413,7 +413,7 @@
 	$.fn.modalmanager.defaults = {
 		backdropLimit: 999,
 		resize: true,
-		spinner: '<div class="loading-spinner fade" style="width: 200px; margin-left: -100px;"><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div></div>',
+		spinner: '<div class="loading-spinner fade" style="width: 200px; margin-left: -100px;"><div class="progress progress-striped active"><div class="progress-bar progress-bar-info" role="progressbar" style="width: 100%;"></div></div></div>',
 		backdropTemplate: '<div class="modal-backdrop" />'
 	};
 
