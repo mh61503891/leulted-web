@@ -17,6 +17,7 @@ function render(id, video, caption) {
 			})
 		}))
 	})
+	$('#video source').attr('poster', video.meta.og.image)
 	$('#video source').attr('src', video.details.htmlStreams[0].file)
 	$('#video')[0].load()
 	$('#video')[0].play()
@@ -68,7 +69,7 @@ function render(id, video, caption) {
 }
 
 function get_video_id() {
-	return location.hash.slice(1, location.hash.length)
+	return location.search.replace('?', '')
 }
 
 $(function() {

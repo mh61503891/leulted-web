@@ -7,7 +7,7 @@ get '/' do
 	erb :index
 end
 
-get '/video.html' do
+get '/video.html?:id' do
 	erb :video
 end
 
@@ -52,6 +52,10 @@ get '/captions.json' do
 	return captions
 end
 
-
+helpers do
+  def base_url
+    @base_url ||= "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
+  end
+end
 
 

@@ -25,7 +25,7 @@ $(function() {
 		}
 	})
 	$('table#videos tbody').delegate('tr', 'click', function() {
-		location.href = 'video.html#' + $(this).data('id')
+		location.href = 'video.html?' + $(this).data('id')
 	})
 	$('table#videos tbody tr td').delegate('button', 'click', function(e) {
 		e.stopPropagation()
