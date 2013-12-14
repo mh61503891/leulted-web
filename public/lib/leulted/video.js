@@ -75,9 +75,9 @@ $(function() {
 	$('body').modalmanager('loading')
 	setTimeout(function() {
 		var id = get_video_id()
-		var video = get_local_video(id)
-		var caption = get_remote_video_caption(id, 'en')
-		// $('body').modalmanager('removeLoading')
+		var video = get_video_by_id(id)
+		var caption = get_video_caption(id, 'en')
+		$('body').modalmanager('removeLoading')
 		render(id, video, caption)
-	}, 5000)
+	}, 1000)
 })

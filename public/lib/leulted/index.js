@@ -4,7 +4,7 @@ function on_clock_video_append() {
 		$('input#video-url').button('loading')
 		$('button#video-append').button('loading')
 		setTimeout(function() {
-			var video = get_remote_video(url)
+			var video = get_remote_video_by_url(url)
 			append_video(video)
 			add_local_video(video)
 			$('input#video-url').button('reset')
@@ -31,7 +31,7 @@ $(function() {
 		e.stopPropagation()
 		var id = $(this).parent().parent().data('id')
 		$('table#videos tbody tr[data-id=' + id + ']').fadeOut(500)
-		remove_local_video(id)
+		remove_local_video_by_id(id)
 	})
 })
 
@@ -42,8 +42,8 @@ function append_videos(videos) {
 }
 
 function append_video(video) {
-	if ($('table#videos tbody tr').length > 0) {
-		$('table#videos tbody tr').remove()
+	if ($('table#videos tbody tr[data-id=' + video.details.id + ']')) {
+		$('table#videos tbody tr[data-id=' + video.details.id + ']').remove()
 	}
 	var tr = $('<tr>', {
 		'data-id': video.details.id,

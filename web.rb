@@ -7,10 +7,20 @@ get '/' do
 	erb :index
 end
 
+get '/video.html' do
+	erb :video
+end
+
+get '/about.html' do
+	erb :about
+end
+
 get '/video.js' do
-	# TODO sec
-	path = params[:url]
-	# path = 'janette_sadik_khan_new_york_s_streets_not_so_mean_any_more.html'
+	return not_found unless params[:id] || params[:url]
+	path = 'http://www.ted.com/talks/view/lang/en/id/' + params[:id] if params[:id]
+	path = params[:url] if params[:url]
+	return not_found unless path =~ /^http\:\/\/www.ted.com\/talks\//
+
 	meta = {}
 	doc = Nokogiri::HTML(open(path))
 	doc.xpath('//meta').each{ |e|
@@ -34,19 +44,14 @@ get '/video.js' do
 end
 
 get '/captions.json' do
+	return not_found unless params[:id] || params[:lang]
 	id = params[:id]
 	lang = params[:lang]
 	url = 'http://www.ted.com/talks/subtitles/id/' + id + '/lang/' + lang + '/format/json'
 	captions = open(url){ |input| input.read }
-	captions
+	return captions
 end
 
-get '/video.html' do
-	erb :video
-end
 
-get '/about.html' do
-	erb :about
-end
 
 
