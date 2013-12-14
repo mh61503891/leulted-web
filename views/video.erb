@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/css" rel="stylesheet" href="lib/bootstrap-3.0.3/css/bootstrap.css">
+  <link type="text/css" rel="stylesheet" href="lib/bootstrap-modal-2.2.0/css/bootstrap-modal-bs3patch.css">
+  <link type="text/css" rel="stylesheet" href="lib/bootstrap-modal-2.2.0/css/bootstrap-modal.css">
+	<script type="text/javascript" src="lib/jquery-1.10.2/jquery.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-3.0.3/js/bootstrap.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-modal-2.2.0/js/bootstrap-modal.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-modal-2.2.0/js/bootstrap-modalmanager.js"></script>
+  <script type="text/javascript" src="/lib/leulted/models.js"></script>
+  <script type="text/javascript" src="/lib/leulted/video.js"></script>
+	<title></title>
+	<style>
+		body {
+		  padding-top: 70px;
+		  padding-bottom: 30px;
+		  min-width: 768px;
+		}
+		video {
+      width: 100%;
+		}
+    #sidebar.affix {
+      position: fixed;
+      width: 240px;
+    }
+    #sidebar.affix-bottom {
+      position: absolute;
+    }
+
+    @media screen and (min-width: 1000px) {
+      #sidebar.affix,
+      #sidebar.affix-bottom {
+        width: 315px;
+      }
+    }
+    @media screen and (min-width: 1200px) {
+      #sidebar.affix,
+      #sidebar.affix-bottom {
+        width: 375px;
+      }
+    }
+</style>
+</head>
+<body>
+  <%= erb :'_header' %>
+  <div class="container">
+  	<div class="row">
+  	  <div class="col-xs-4">
+        <div id="sidebar" data-spy="affix"  data-offset-top="200">
+          <video id="video" controls autoplay class="thumbnail">
+            <source>
+          </video>
+          <span>Caption Offset: </span>
+          <span id="video-offset-up" class="glyphicon glyphicon glyphicon-chevron-up" style="cursor:pointer;"></span><span id="video-offset-value"></span>s<span id="video-offset-down" class="glyphicon glyphicon glyphicon-chevron-down" style="cursor:pointer;"></span>
+        </div>
+  	  </div>
+  	  <div class="col-xs-8">
+  	  	<table id="captions" class="table table-hover table-condensed">
+          <thead></thead>
+          <tbody></tbody>
+          <tfoot></tfoot>
+  	  	</table>
+  	  </div>
+  	</div>
+  </div>
+  <%= erb :'_footer' %>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="lib/bootstrap-3.0.3/css/bootstrap.css">
+  <script type="text/javascript" src="lib/jquery-1.10.2/jquery.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-3.0.3/js/bootstrap.js"></script>
+  <script type="text/javascript" src="lib/moment-with-langs-2.4.2.js"></script>
+  <script type="text/javascript" src="/lib/leulted/models.js"></script>
+  <script type="text/javascript" src="/lib/leulted/index.js"></script>
+  <title></title>
+  <style>
+    body {
+      padding-top: 70px;
+    }
+  </style>
+</head>
+<body>
+  <%= erb :'_header' %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="TED Talk's URL" id="video-url">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" id="video-append"><span class="glyphicon glyphicon-plus"></span></button>
+          </span>
+        </div>
+          <span class="help-block">Example: http://www.ted.com/talks/lang/en/janette_sadik_khan_new_york_s_streets_not_so_mean_any_more.html</span>
+        <table id="videos" class="table table-hover table-condensed">
+          <thead></thead>
+          <tbody></tbody>
+          <tfoot></tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+  <%= erb :'_footer' %>
+</body>
+</html>
