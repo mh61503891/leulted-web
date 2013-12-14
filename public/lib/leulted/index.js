@@ -11,11 +11,17 @@ function on_clock_video_append() {
 			$('button#video-append').button('reset')
 		}, 1000)
 	}
-
 }
 
 $(function() {
 	append_videos(get_local_videos())
+	if ($('table#videos tbody tr').size() == 0) {
+		$.each([66, 848, 1042, 229], function(index, id) {
+			var video = get_video_by_id(id)
+			console.log(video)
+			append_video(video)
+		})
+	}
 	$('button#video-append').on('click', function() {
 		on_clock_video_append()
 	})
